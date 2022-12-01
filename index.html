@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    .font {
+      font-family: "Roboto";
+      text-align: center;
+      color: rgb(54, 54, 54);
+    }
+
+    body {
+      background-image: url("./bg1.png");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      background-color: transparent;
+    }
+
+    .container-settings {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body class="custom-style">
+  <h1 class="font">IS445 Data Visualization Final Project - Yelp Restaurant Analysis</h1>
+  <div style="text-align: center">
+    <div id="vis" class="container-settings"></div>
+  </div>
+</body>
+
+
+</body>
+
+<script src="./jquery.js"></script>
+  <script src="./raphael.js"></script>
+  <script src="./jquery.usmap.js"></script>
+
+ <div id="map" style="width: 350px; height: 250px;"></div>
+<div id="clicked-state"></div>
+<script>
+    var dlink = "https://raw.githubusercontent.com/yuwei97910/is445-group30-final-project/main/DataSet/yelp_academic_dataset_business_IL.json"
+    $('#map').usmap({
+
+        
+    // The click action
+    click: function(event, data) {
+    $('#clicked-state')
+      .text('You clicked: '+data.name)
+    //   .parent().effect('highlight', {color: '#C7F464'}, 2000);
+    //   alert(data.name);
+      var dlink =`https://raw.githubusercontent.com/yuwei97910/is445-group30-final-project/main/DataSet/yelp_academic_dataset_business_${data.name}.json`
+    //   if(data.name == "IL"){
+    //     dlink = "https://raw.githubusercontent.com/yuwei97910/is445-group30-final-project/main/DataSet/yelp_academic_dataset_business_IL.json";
+    //   }
+    //   alert(dlink)
+      console.log(data.name);
+      console.log(dlink);
+  }
+});
+finalSpec={
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data":{"url": dlink},
+    "mark":"bar",
+    "height":300,
+    "width":1000,
+    "background":null,
+    "encoding":{
+    "x":{"field":"stars", "type":"ordinal"},
+    "y":{"aggregate":"count", "field":"stars","type":"quantitative"},
+    "color":{"value":"orange"}
+  }
+  
+};
+    vegaEmbed('#vis', finalSpec);
+
+</script>
+
+
+
+<style>
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #7aa8b7;
+      border-radius: 6px;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+    <a href="https://github.com/yuwei97910/yuwei97910.github.io/blob/main/_site/index.html" class="button">Go to Analysis Notebook</a>
+</body>
