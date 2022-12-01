@@ -7,10 +7,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet"/>
 
   <style>
     .font {
@@ -18,7 +15,19 @@
       text-align: center;
       color: rgb(54, 54, 54);
     }
-
+    .font-map {
+      font-family: "Roboto";
+      text-align: start;
+      color: rgb(54, 54, 54);
+      margin-bottom: 2em;
+      margin-left: 1em;
+      font-weight: bold;
+    }
+    .reference {
+      font-family: "Roboto";
+      text-align: start;
+      color: rgb(54, 54, 54);
+    }
     body {
       background-image: url("./bg1.png");
       background-repeat: no-repeat;
@@ -26,34 +35,9 @@
       background-size: cover;
       background-color: transparent;
     }
-
     .container-settings {
       width: 100%;
     }
-  </style>
-</head>
-
-<body class="custom-style">
-  <h1 class="font">IS445 Data Visualization Final Project - Yelp Restaurant Analysis</h1>
-  <div style="text-align: center">
-    <div id="vis" class="container-settings"></div>
-  </div>
-</body>
-
-
-</body>
-
-<script src="./jquery.js"></script>
-  <script src="./raphael.js"></script>
-  <script src="./jquery.usmap.js"></script>
-
- <div id="map" style="width: 350px; height: 250px;"></div>
-<div id="clicked-state"></div>
-<script src="./dashboard.js"></script>
-
-
-
-<style>
     .button {
       display: inline-block;
       padding: 10px 20px;
@@ -66,8 +50,30 @@
     }
   </style>
 </head>
-<body>
-    <a href="https://github.com/yuwei97910/yuwei97910.github.io/blob/main/_site/index.html" class="button">Go to Analysis Notebook</a>
-    <p>Reference:  jQuery and Raphaël libraries(https://newsignature.github.io/us-map/#usage-events)</p>
+
+<body class="custom-style">
+  <h1 class="font">IS445 Data Visualization Final Project - Yelp Restaurant Analysis</h1>
+  <div style="text-align: center">
+    <div id="vis" class="container-settings"></div>
+  </div>
 </body>
 
+
+<script src="./jquery.js"></script>
+  <script src="./raphael.js"></script>
+  <script src="./jquery.usmap.js"></script>
+
+</head>
+
+
+<div class="font-map">Please select state below: </div>
+<div id="map" style="width: 350px; height: 250px;"></div>
+<div id="clicked-state" class="font-map"></div>
+<script src="./dashboard.js"></script>
+
+
+<div>
+    <a href="https://github.com/yuwei97910/yuwei97910.github.io/blob/main/_site/index.html" class="button">Go to Analysis Notebook</a>
+    <p class="reference"> Reference:  <br>
+        -  jQuery and Raphaël libraries (https://newsignature.github.io/us-map/#usage-events)</p>
+</div>
