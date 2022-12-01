@@ -11,22 +11,25 @@
 
   <style>
     .font {
-      font-family: "Roboto";
+      font-family: "Arial", sans-serif;
       text-align: center;
       color: rgb(54, 54, 54);
     }
     .font-map {
-      font-family: "Roboto";
+      font-family: "Arial", sans-serif;
       text-align: start;
       color: rgb(54, 54, 54);
       margin-bottom: 2em;
       margin-left: 1em;
       font-weight: bold;
+      
     }
     .reference {
-      font-family: "Roboto";
+      font-family: "Arial", sans-serif;
       text-align: start;
       color: rgb(54, 54, 54);
+      margin-bottom: 2em;
+      margin-left: 1em;
     }
     body {
       background-image: url("./bg1.png");
@@ -47,6 +50,7 @@
       background-color: #7aa8b7;
       border-radius: 6px;
       outline: none;
+      margin-left: 1em;
     }
   </style>
 </head>
@@ -67,13 +71,17 @@
 
 
 <div class="font-map">Please select state below: </div>
-<div id="map" style="width: 350px; height: 250px;"></div>
+<div id="map" style="width: 350px; height: 250px; margin-left: 1em;"></div>
 <div id="clicked-state" class="font-map"></div>
 <script src="./dashboard.js"></script>
 
 
 <div>
     <a href="https://github.com/yuwei97910/yuwei97910.github.io/blob/main/_site/index.html" class="button">Go to Analysis Notebook</a>
-    <p class="reference"> Reference:  <br>
-        -  jQuery and Raphaël libraries (https://newsignature.github.io/us-map/#usage-events)</p>
+    <a href="writeup.html" class="button">Go to Write-up</a>
+    <p class="reference"> <strong>References:</strong>  <br>
+        <a href="https://newsignature.github.io/us-map/#usage-events" class="reference">-  jQuery and Raphaël libraries for interactive map</a><br>
+        <a href="https://www.yelp.com/dataset" class="reference">-  Yelp Dataset</a>
+    </p>
 </div>
+
