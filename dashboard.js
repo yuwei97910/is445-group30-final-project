@@ -1,10 +1,9 @@
-var dlink =
-  "https://raw.githubusercontent.com/yuwei97910/is445-group30-final-project/main/DataSet/yelp_academic_dataset_business_IL.json";
 $("#map").usmap({
   // The click action
   click: function (event, data) {
     $("#clicked-state").text("You have selected this state: " + data.name);
     dlink = `https://raw.githubusercontent.com/yuwei97910/is445-group30-final-project/main/DataSet/yelp_academic_dataset_business_${data.name}.csv`;
+    state_link = `https://raw.githubusercontent.com/unitedstates/districts/gh-pages/states/${data.name}/shape.geojson`;
     console.log(data.name);
     console.log(dlink);
     var state_with_data = [
@@ -27,7 +26,7 @@ $("#map").usmap({
     //   alert("No data for this state");
     // }
     if (!state_with_data.includes(data.name)) {
-      alert("No data for this state");
+      alert(`No data for the state: ${data.name}.`);
     }
     finalViz = {
       $schema: "https://vega.github.io/schema/vega-lite/v5.json",
@@ -38,6 +37,7 @@ $("#map").usmap({
       background: null,
       hconcat: [
         {
+          // row 1.
           vconcat: [
             {
               title: {
@@ -46,7 +46,7 @@ $("#map").usmap({
                 color: "black",
               },
               width: 200,
-              height: 200,
+              height: 120,
               mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
               encoding: {
                 color: { field: "has_parking", type: "ordinal" },
@@ -72,7 +72,7 @@ $("#map").usmap({
                 color: "black",
               },
               width: 200,
-              height: 200,
+              height: 120,
               mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
               encoding: {
                 color: { field: "animal_friendly", type: "ordinal" },
@@ -91,10 +91,43 @@ $("#map").usmap({
                 },
               },
             },
+            // Plot
+            {
+              data: { url: dlink },
+              title: {
+                text: "Restaurant has wifi",
+                fontSize: 15,
+                color: "black",
+              },
+              width: 200,
+              height: 120,
+              mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
+              encoding: {
+                color: {
+                  field: "has_wifi",
+                  type: "ordinal",
+                  legend: { diable: false },
+                },
+                x: { field: "has_wifi", type: "ordinal" },
+                y: {
+                  aggregate: "count",
+                  field: "has_wifi",
+                  type: "quantitative",
+                },
+              },
+              selection: {
+                selector092: {
+                  type: "interval",
+                  bind: "scales",
+                  encodings: ["x", "y"],
+                },
+              },
+            },
           ],
         },
         {
           vconcat: [
+            // Plot
             {
               title: {
                 text: "Stars and Review Count",
@@ -129,6 +162,7 @@ $("#map").usmap({
                 encodings: ["x", "y"],
               },
             },
+            // Plot
             {
               title: {
                 text: "Relationship between Stars and Restaurants' info",
@@ -201,31 +235,47 @@ $("#map").usmap({
         },
         {
           vconcat: [
+            // Plot
             {
               title: {
-                text: "Restaurant has wifi",
+                text: "Map for the state",
                 fontSize: 15,
                 color: "black",
               },
+              projection: {
+                type: "albersUsa",
+              },
               width: 200,
-              height: 200,
-              mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
-              encoding: {
-                color: { field: "has_wifi", type: "ordinal" },
-                x: { field: "has_wifi", type: "ordinal" },
-                y: {
-                  aggregate: "count",
-                  field: "has_wifi",
-                  type: "quantitative",
+              height: 400,
+              layer: [
+                {
+                  data: {
+                    // "url": "https://raw.githubusercontent.com/unitedstates/districts/gh-pages/states/FL/shape.geojson",
+                    url: state_link,
+                    format: {
+                      type: "topojson",
+                      feature: "states",
+                    },
+                  },
+                  mark: {
+                    type: "geoshape",
+                    fill: "lightgray",
+                    stroke: "white",
+                    clip: true,
+                    tooltip: true,
+                  },
                 },
-              },
-              selection: {
-                selector092: {
-                  type: "interval",
-                  bind: "scales",
-                  encodings: ["x", "y"],
+                {
+                  // "data": {"url": "https://raw.githubusercontent.com/yuwei97910/is445-group30-final-project/main/DataSet/yelp_academic_dataset_business_FL.csv"},
+                  data: { url: dlink },
+                  mark: { type: "circle", clip: true, tooltip: true },
+                  encoding: {
+                    longitude: { field: "longitude", type: "quantitative" },
+                    latitude: { field: "latitude", type: "quantitative" },
+                    color: { field: "unique_category", type: "nominal" },
+                  },
                 },
-              },
+              ],
             },
           ],
         },
@@ -234,6 +284,10 @@ $("#map").usmap({
     vegaEmbed("#vis", finalViz);
   },
 });
+
+// var dlink = "https://raw.githubusercontent.com/yuwei97910/is445-group30-final-project/main/DataSet/yelp_academic_dataset_business_IL.csv";
+// var state_link = "https://raw.githubusercontent.com/unitedstates/districts/gh-pages/states/IL/shape.geojson";
+
 finalViz = {
   $schema: "https://vega.github.io/schema/vega-lite/v5.json",
   config: { view: { continuousWidth: 300, continuousHeight: 200 } },
@@ -243,6 +297,7 @@ finalViz = {
   background: null,
   hconcat: [
     {
+      // row 1.
       vconcat: [
         {
           title: {
@@ -251,7 +306,7 @@ finalViz = {
             color: "black",
           },
           width: 200,
-          height: 200,
+          height: 120,
           mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
           encoding: {
             color: { field: "has_parking", type: "ordinal" },
@@ -277,7 +332,7 @@ finalViz = {
             color: "black",
           },
           width: 200,
-          height: 200,
+          height: 120,
           mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
           encoding: {
             color: { field: "animal_friendly", type: "ordinal" },
@@ -296,10 +351,42 @@ finalViz = {
             },
           },
         },
+        // Plot
+        {
+          title: {
+            text: "Restaurant has wifi",
+            fontSize: 15,
+            color: "black",
+          },
+          width: 200,
+          height: 120,
+          mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
+          encoding: {
+            color: {
+              field: "has_wifi",
+              type: "ordinal",
+              legend: { diable: false },
+            },
+            x: { field: "has_wifi", type: "ordinal" },
+            y: {
+              aggregate: "count",
+              field: "has_wifi",
+              type: "quantitative",
+            },
+          },
+          selection: {
+            selector092: {
+              type: "interval",
+              bind: "scales",
+              encodings: ["x", "y"],
+            },
+          },
+        },
       ],
     },
     {
       vconcat: [
+        // Plot
         {
           title: {
             text: "Stars and Review Count",
@@ -334,6 +421,7 @@ finalViz = {
             encodings: ["x", "y"],
           },
         },
+        // Plot
         {
           title: {
             text: "Relationship between Stars and Restaurants' info",
@@ -406,34 +494,51 @@ finalViz = {
     },
     {
       vconcat: [
+        // Plot
         {
           title: {
-            text: "Restaurant has wifi",
+            text: "Map for the state",
             fontSize: 15,
             color: "black",
           },
+          projection: {
+            type: "albersUsa",
+          },
           width: 200,
-          height: 200,
-          mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
-          encoding: {
-            color: { field: "has_wifi", type: "ordinal" },
-            x: { field: "has_wifi", type: "ordinal" },
-            y: {
-              aggregate: "count",
-              field: "has_wifi",
-              type: "quantitative",
+          height: 400,
+          layer: [
+            {
+              data: {
+                url: "https://raw.githubusercontent.com/unitedstates/districts/gh-pages/states/IL/shape.geojson",
+                format: {
+                  type: "topojson",
+                  feature: "states",
+                  tooltip: true,
+                },
+              },
+              mark: {
+                type: "geoshape",
+                fill: "lightgray",
+                stroke: "white",
+                clip: true,
+              },
             },
-          },
-          selection: {
-            selector092: {
-              type: "interval",
-              bind: "scales",
-              encodings: ["x", "y"],
+            {
+              data: {
+                url: "https://raw.githubusercontent.com/yuwei97910/is445-group30-final-project/main/DataSet/yelp_academic_dataset_business_IL.csv",
+              },
+              mark: { type: "circle", clip: true, tooltip: true },
+              encoding: {
+                longitude: { field: "longitude", type: "quantitative" },
+                latitude: { field: "latitude", type: "quantitative" },
+                color: { field: "unique_category", type: "nominal" },
+              },
             },
-          },
+          ],
         },
       ],
     },
   ],
 };
+
 vegaEmbed("#vis", finalViz);
