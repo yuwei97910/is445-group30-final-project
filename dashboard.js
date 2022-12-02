@@ -46,7 +46,7 @@ $("#map").usmap({
                 color: "black",
               },
               width: 200,
-              height: 120,
+              height: 100,
               mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
               encoding: {
                 color: { field: "has_parking", type: "ordinal" },
@@ -72,7 +72,7 @@ $("#map").usmap({
                 color: "black",
               },
               width: 200,
-              height: 120,
+              height: 100,
               mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
               encoding: {
                 color: { field: "animal_friendly", type: "ordinal" },
@@ -100,7 +100,7 @@ $("#map").usmap({
                 color: "black",
               },
               width: 200,
-              height: 120,
+              height: 100,
               mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
               encoding: {
                 color: {
@@ -246,7 +246,7 @@ $("#map").usmap({
                 type: "albersUsa",
               },
               width: 200,
-              height: 400,
+              height: 600,
               layer: [
                 {
                   data: {
@@ -306,7 +306,7 @@ finalViz = {
             color: "black",
           },
           width: 200,
-          height: 120,
+          height: 100,
           mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
           encoding: {
             color: { field: "has_parking", type: "ordinal" },
@@ -332,7 +332,7 @@ finalViz = {
             color: "black",
           },
           width: 200,
-          height: 120,
+          height: 100,
           mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
           encoding: {
             color: { field: "animal_friendly", type: "ordinal" },
@@ -359,7 +359,7 @@ finalViz = {
             color: "black",
           },
           width: 200,
-          height: 120,
+          height: 100,
           mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
           encoding: {
             color: {
@@ -505,7 +505,7 @@ finalViz = {
             type: "albersUsa",
           },
           width: 200,
-          height: 400,
+          height: 600,
           layer: [
             {
               data: {
