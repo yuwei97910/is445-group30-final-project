@@ -31,7 +31,7 @@ $("#map").usmap({
     }
     finalViz = {
       $schema: "https://vega.github.io/schema/vega-lite/v5.json",
-      config: { view: { continuousWidth: 300, continuousHeight: 300 } },
+      config: { view: { continuousWidth: 300, continuousHeight: 200 } },
       data: {
         url: dlink,
       },
@@ -45,7 +45,8 @@ $("#map").usmap({
                 fontSize: 15,
                 color: "black",
               },
-              width: 300,
+              width: 200,
+              height: 200,
               mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
               encoding: {
                 color: { field: "has_parking", type: "ordinal" },
@@ -70,7 +71,8 @@ $("#map").usmap({
                 fontSize: 15,
                 color: "black",
               },
-              width: 300,
+              width: 200,
+              height: 200,
               mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
               encoding: {
                 color: { field: "animal_friendly", type: "ordinal" },
@@ -205,7 +207,8 @@ $("#map").usmap({
                 fontSize: 15,
                 color: "black",
               },
-              width: 300,
+              width: 200,
+              height: 200,
               mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
               encoding: {
                 color: { field: "has_wifi", type: "ordinal" },
@@ -233,7 +236,7 @@ $("#map").usmap({
 });
 finalViz = {
   $schema: "https://vega.github.io/schema/vega-lite/v5.json",
-  config: { view: { continuousWidth: 300, continuousHeight: 300 } },
+  config: { view: { continuousWidth: 300, continuousHeight: 200 } },
   data: {
     url: "https://raw.githubusercontent.com/yuwei97910/is445-group30-final-project/main/DataSet/yelp_academic_dataset_business_IL.csv",
   },
@@ -247,7 +250,8 @@ finalViz = {
             fontSize: 15,
             color: "black",
           },
-          width: 300,
+          width: 200,
+          height: 200,
           mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
           encoding: {
             color: { field: "has_parking", type: "ordinal" },
@@ -272,7 +276,8 @@ finalViz = {
             fontSize: 15,
             color: "black",
           },
-          width: 300,
+          width: 200,
+          height: 200,
           mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
           encoding: {
             color: { field: "animal_friendly", type: "ordinal" },
@@ -407,7 +412,8 @@ finalViz = {
             fontSize: 15,
             color: "black",
           },
-          width: 300,
+          width: 200,
+          height: 200,
           mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
           encoding: {
             color: { field: "has_wifi", type: "ordinal" },
