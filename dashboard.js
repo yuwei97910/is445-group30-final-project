@@ -116,23 +116,6 @@ $("#map").usmap({
                 bind: "scales",
                 encodings: ["x", "y"],
               },
-
-              transform: [
-                {
-                  fold: [
-                    "review_count",
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday",
-                    "review_count",
-                  ],
-                  as: ["y_axis", "y_value"],
-                },
-                { filter: { selection: "selector085" } },
-              ],
             },
             {
               title: {
@@ -164,7 +147,7 @@ $("#map").usmap({
                       "Thursday",
                       "Friday",
                       "Saturday",
-                      "review_count",
+                      "Sunday",
                     ],
                     name: "select a day:  ",
                   },
@@ -179,14 +162,13 @@ $("#map").usmap({
               transform: [
                 {
                   fold: [
-                    "review_count",
                     "Monday",
                     "Tuesday",
                     "Wednesday",
                     "Thursday",
                     "Friday",
                     "Saturday",
-                    "review_count",
+                    "Sunday",
                   ],
                   as: ["y_axis", "y_value"],
                 },
@@ -316,23 +298,6 @@ finalViz = {
             bind: "scales",
             encodings: ["x", "y"],
           },
-
-          transform: [
-            {
-              fold: [
-                "review_count",
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-                "review_count",
-              ],
-              as: ["y_axis", "y_value"],
-            },
-            { filter: { selection: "selector085" } },
-          ],
         },
         {
           title: {
@@ -364,7 +329,7 @@ finalViz = {
                   "Thursday",
                   "Friday",
                   "Saturday",
-                  "review_count",
+                  "Sunday",
                 ],
                 name: "select a day:  ",
               },
@@ -379,14 +344,13 @@ finalViz = {
           transform: [
             {
               fold: [
-                "review_count",
                 "Monday",
                 "Tuesday",
                 "Wednesday",
                 "Thursday",
                 "Friday",
                 "Saturday",
-                "review_count",
+                "Sunday",
               ],
               as: ["y_axis", "y_value"],
             },
