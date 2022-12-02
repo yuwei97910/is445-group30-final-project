@@ -10,6 +10,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet"/>
 
   <style>
+    .title {
+      font-family:"Verdana" ;
+      text-align: center;
+      color: rgb(54, 54, 54);
+    }
     .font {
       font-family: "Arial", sans-serif;
       text-align: center;
@@ -20,7 +25,7 @@
       text-align: start;
       color: rgb(54, 54, 54);
       margin-bottom: 2em;
-      margin-left: 1em;
+      margin-left: 50em;
       font-weight: bold;
       
     }
@@ -28,16 +33,16 @@
       font-family: "Arial", sans-serif;
       text-align: start;
       color: rgb(54, 54, 54);
-      margin-left: 1em;
+      margin-left: 50em;
     }
     .reference-member {
       font-family: "Arial", sans-serif;
       text-align: start;
       color: rgb(54, 54, 54);
-      margin-left: 1em;
+      margin-left: 50em;
     }
     body {
-      background-image: url("./bg1.png");
+      background-image: url("./bg4.png");
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
@@ -55,13 +60,30 @@
       background-color: #7aa8b7;
       border-radius: 6px;
       outline: none;
-      margin-left: 1em;
+      margin-left: 2em;
+    }
+    .button-reference {
+      display: inline-block;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #b5b5b5;
+      border-radius: 6px;
+      outline: none;
+      margin-left: 2em;
+    }
+    .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
     }
   </style>
 </head>
 
 <body class="custom-style">
-  <h1 class="font">IS445 Data Visualization Final Project - Yelp Restaurant Analysis</h1>
+  <h1 class="title">Find the Best Restaurants Near Me!</h1>
   <div style="text-align: center">
     <div id="vis" class="container-settings"></div>
   </div>
@@ -74,25 +96,33 @@
 
 </head>
 
-
+<br>
+<br>
+<br>
 <div class="font-map">Please select state below: </div>
-<div id="map" style="width: 350px; height: 250px; margin-left: 1em;"></div>
+<div id="map" style="width: 350px; height: 250px; margin-left: 50em;"></div>
 <div id="clicked-state" class="font-map"></div>
 <script src="./dashboard.js"></script>
 
 
 <div>
-    <a href="https://github.com/yenshouhuang/yenshouhuang.github.io/blob/main/Analysis/Final_Project_Part2.ipynb" class="button">Go to Analysis Notebook</a>
-    <a href="writeup.html" class="button">Go to Connective Information</a>
-    <p class="reference"> <strong>Authors:</strong>  <br>
+    <div class="center">
+        <input type=button onClick="location.href='https://github.com/yenshouhuang/yenshouhuang.github.io/blob/main/Analysis/Final_analysis.ipynb'" value='Go to Analysis Notebook' class="button">
+        <input type=button onClick="location.href='writeup.html'" value='Go to Connective Information' class="button">
+    </div>
+    <br>
+    <br>
+    <p class="reference">  <strong>IS445 Data Visualization Final Project</strong>  <br> <br> Authors: <br>
         <li class="reference-member"> Ching-Yun Huang (ch60@illinois.edu)</li>
         <li class="reference-member">Thomas Huang (yenshuo2@illinois.edu)</li>
         <li class="reference-member">Haocheng Zhong (hzhong11@illinois.edu)</li>
         <li class="reference-member">Yu-Wei Lai (yuwei6@illinois.edu)</li>
     </p>
     <p class="reference"> <strong>References:</strong>  <br>
-        <a href="https://www.yelp.com/dataset" class="reference"> -Yelp Dataset</a><br>
-        <a href="https://newsignature.github.io/us-map/#usage-events" class="reference"> -jQuery and Raphaël libraries for interactive map</a>
+        <div class="center">
+            <input type=button onClick="location.href='https://www.yelp.com/dataset'" value='Yelp Dataset' class="button-reference">
+            <input type=button onClick="location.href='https://newsignature.github.io/us-map/#usage-events'" value='Libraries for interactive map' class="button-reference">
+        </div>
     </p>
 </div>
 

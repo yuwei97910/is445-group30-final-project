@@ -7,6 +7,28 @@ $("#map").usmap({
     dlink = `https://raw.githubusercontent.com/yuwei97910/is445-group30-final-project/main/DataSet/yelp_academic_dataset_business_${data.name}.csv`;
     console.log(data.name);
     console.log(dlink);
+    var state_with_data = [
+      "AB",
+      "AZ",
+      "CA",
+      "DE",
+      "FL",
+      "ID",
+      "IL",
+      "IN",
+      "LA",
+      "MO",
+      "NJ",
+      "NV",
+      "PA",
+      "TN",
+    ];
+    // if (!(data.name in state_with_data)) {
+    //   alert("No data for this state");
+    // }
+    if (!state_with_data.includes(data.name)) {
+      alert("No data for this state");
+    }
     finalViz = {
       $schema: "https://vega.github.io/schema/vega-lite/v5.json",
       config: { view: { continuousWidth: 400, continuousHeight: 300 } },
