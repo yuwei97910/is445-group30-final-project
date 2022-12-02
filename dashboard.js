@@ -31,7 +31,7 @@ $("#map").usmap({
     }
     finalViz = {
       $schema: "https://vega.github.io/schema/vega-lite/v5.json",
-      config: { view: { continuousWidth: 400, continuousHeight: 300 } },
+      config: { view: { continuousWidth: 300, continuousHeight: 300 } },
       data: {
         url: dlink,
       },
@@ -45,8 +45,8 @@ $("#map").usmap({
                 fontSize: 15,
                 color: "black",
               },
-              width: 400,
-              mark: { type: "bar", width: { band: 0.7 } },
+              width: 300,
+              mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
               encoding: {
                 color: { field: "has_parking", type: "ordinal" },
                 x: { field: "has_parking", type: "ordinal" },
@@ -70,8 +70,8 @@ $("#map").usmap({
                 fontSize: 15,
                 color: "black",
               },
-              width: 400,
-              mark: { type: "bar", width: { band: 0.7 } },
+              width: 300,
+              mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
               encoding: {
                 color: { field: "animal_friendly", type: "ordinal" },
                 x: { field: "animal_friendly", type: "ordinal" },
@@ -102,7 +102,17 @@ $("#map").usmap({
               mark: "circle",
               encoding: {
                 color: { field: "stars", type: "quantitative" },
-                tooltip: { field: "name", type: "nominal" },
+                tooltip: [
+                  { field: "name", type: "nominal" },
+                  { field: "postal_code", type: "nominal" },
+                  { field: "city", type: "nominal" },
+                  { field: "address", type: "nominal" },
+                  { field: "review_count", type: "quantitative" },
+                  { field: "restaurant_type", type: "nominal" },
+                  { field: "has_parking", type: "nominal" },
+                  { field: "has_wifi", type: "nominal" },
+                  { field: "animal_friendly", type: "nominal" },
+                ],
                 x: { field: "stars", type: "quantitative" },
                 y: {
                   field: "review_count",
@@ -123,10 +133,20 @@ $("#map").usmap({
                 fontSize: 15,
                 color: "black",
               },
-              mark: "circle",
+              mark: "point",
               encoding: {
                 color: { field: "stars", type: "quantitative" },
-                tooltip: { field: "name", type: "nominal" },
+                tooltip: [
+                  { field: "name", type: "nominal" },
+                  { field: "postal_code", type: "nominal" },
+                  { field: "city", type: "nominal" },
+                  { field: "address", type: "nominal" },
+                  { field: "review_count", type: "quantitative" },
+                  { field: "restaurant_type", type: "nominal" },
+                  { field: "has_parking", type: "nominal" },
+                  { field: "has_wifi", type: "nominal" },
+                  { field: "animal_friendly", type: "nominal" },
+                ],
                 x: { field: "stars", type: "quantitative" },
                 y: {
                   field: "y_value",
@@ -185,8 +205,8 @@ $("#map").usmap({
                 fontSize: 15,
                 color: "black",
               },
-              width: 400,
-              mark: { type: "bar", width: { band: 0.7 } },
+              width: 300,
+              mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
               encoding: {
                 color: { field: "has_wifi", type: "ordinal" },
                 x: { field: "has_wifi", type: "ordinal" },
@@ -213,7 +233,7 @@ $("#map").usmap({
 });
 finalViz = {
   $schema: "https://vega.github.io/schema/vega-lite/v5.json",
-  config: { view: { continuousWidth: 400, continuousHeight: 300 } },
+  config: { view: { continuousWidth: 300, continuousHeight: 300 } },
   data: {
     url: "https://raw.githubusercontent.com/yuwei97910/is445-group30-final-project/main/DataSet/yelp_academic_dataset_business_IL.csv",
   },
@@ -227,8 +247,8 @@ finalViz = {
             fontSize: 15,
             color: "black",
           },
-          width: 400,
-          mark: { type: "bar", width: { band: 0.7 } },
+          width: 300,
+          mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
           encoding: {
             color: { field: "has_parking", type: "ordinal" },
             x: { field: "has_parking", type: "ordinal" },
@@ -252,8 +272,8 @@ finalViz = {
             fontSize: 15,
             color: "black",
           },
-          width: 400,
-          mark: { type: "bar", width: { band: 0.7 } },
+          width: 300,
+          mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
           encoding: {
             color: { field: "animal_friendly", type: "ordinal" },
             x: { field: "animal_friendly", type: "ordinal" },
@@ -284,7 +304,17 @@ finalViz = {
           mark: "circle",
           encoding: {
             color: { field: "stars", type: "quantitative" },
-            tooltip: { field: "name", type: "nominal" },
+            tooltip: [
+              { field: "name", type: "nominal" },
+              { field: "postal_code", type: "nominal" },
+              { field: "city", type: "nominal" },
+              { field: "address", type: "nominal" },
+              { field: "review_count", type: "quantitative" },
+              { field: "restaurant_type", type: "nominal" },
+              { field: "has_parking", type: "nominal" },
+              { field: "has_wifi", type: "nominal" },
+              { field: "animal_friendly", type: "nominal" },
+            ],
             x: { field: "stars", type: "quantitative" },
             y: {
               field: "review_count",
@@ -305,10 +335,20 @@ finalViz = {
             fontSize: 15,
             color: "black",
           },
-          mark: "circle",
+          mark: "point",
           encoding: {
             color: { field: "stars", type: "quantitative" },
-            tooltip: { field: "name", type: "nominal" },
+            tooltip: [
+              { field: "name", type: "nominal" },
+              { field: "postal_code", type: "nominal" },
+              { field: "city", type: "nominal" },
+              { field: "address", type: "nominal" },
+              { field: "review_count", type: "quantitative" },
+              { field: "restaurant_type", type: "nominal" },
+              { field: "has_parking", type: "nominal" },
+              { field: "has_wifi", type: "nominal" },
+              { field: "animal_friendly", type: "nominal" },
+            ],
             x: { field: "stars", type: "quantitative" },
             y: {
               field: "y_value",
@@ -367,8 +407,8 @@ finalViz = {
             fontSize: 15,
             color: "black",
           },
-          width: 400,
-          mark: { type: "bar", width: { band: 0.7 } },
+          width: 300,
+          mark: { type: "bar", width: { band: 0.7 }, tooltip: true },
           encoding: {
             color: { field: "has_wifi", type: "ordinal" },
             x: { field: "has_wifi", type: "ordinal" },
