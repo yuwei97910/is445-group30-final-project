@@ -1,131 +1,165 @@
 <!DOCTYPE html>
 
-<head>
-  <meta charset="utf-8" />
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet"/>
-
-  <style>
+<style>
     .title {
-      font-family:"Verdana" ;
-      text-align: center;
-      color: rgb(54, 54, 54);
+        font-family: "Verdana";
+        text-align: center;
+        color: rgb(54, 54, 54);
     }
+
     .font {
-      font-family: "Arial", sans-serif;
-      text-align: center;
-      color: rgb(54, 54, 54);
+        font-family: "Arial", sans-serif;
+        text-align: center;
+        color: rgb(54, 54, 54);
     }
+
     .font-map {
-      font-family: "Arial", sans-serif;
-      text-align: start;
-      color: rgb(54, 54, 54);
-      margin-bottom: 2em;
-      font-weight: bold;
-      margin-left:60%; 
-      transform:translate(-50%);
-      
+        font-family: "Arial", sans-serif;
+        text-align: center;
+        color: rgb(54, 54, 54);
+        margin-bottom: 2em;
+        font-weight: bold;
+        margin-left: 60%;
+        transform: translate(-50%);
     }
+
+    .dash-board {
+        font-family: "Arial", sans-serif;
+        text-align: center;
+    }
+
     .reference {
-      font-family: "Arial", sans-serif;
-      text-align: start;
-      color: rgb(54, 54, 54);
-      margin-left:60%; 
-      transform:translate(-50%);
+        font-family: "Arial", sans-serif;
+        text-align: start;
+        color: rgb(54, 54, 54);
+        margin-left: 60%;
+        transform: translate(-50%);
     }
+
     .reference-member {
-      font-family: "Arial", sans-serif;
-      text-align: start;
-      color: rgb(54, 54, 54);
-      margin-left:60%; 
-      transform:translate(-50%);
+        font-family: "Arial", sans-serif;
+        text-align: start;
+        color: rgb(54, 54, 54);
+        margin-left: 60%;
+        transform: translate(-50%);
     }
+
     body {
-      background-image: url("./asset/bg4.png");
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-      background-color: transparent;
+        background-image: url("./asset/bg4.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-color: transparent;
     }
+
     .container-settings {
-      width: 100%;
+        width: 100%;
     }
+
     .button {
-      display: inline-block;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      color: #ffffff;
-      background-color: #7aa8b7;
-      border-radius: 6px;
-      outline: none;
-      margin-left: 2em;
+        display: inline-block;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+        background-color: #7aa8b7;
+        border-radius: 6px;
+        outline: none;
+        margin-left: 2em;
     }
+
     .button-reference {
-      display: inline-block;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      color: #ffffff;
-      background-color: #b5b5b5;
-      border-radius: 6px;
-      outline: none;
-      margin-left: 2em;
+        display: inline-block;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+        background-color: #b5b5b5;
+        border-radius: 6px;
+        outline: none;
+        margin-left: 2em;
     }
+
     .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
     }
-  </style>
+
+    .information-section {
+        font-family: "Arial", sans-serif;
+        text-align: center;
+    }
+</style>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet" />
 </head>
 
 <body class="custom-style">
-  <h1 class="title">Find the Best Restaurants Near Me!</h1>
-  <div style="text-align: center">
-    <div id="vis" class="container-settings"></div>
-  </div>
-</body>
+    <h1 class="title">Find the Best Restaurants Near Me!</h1>
 
+    <script src="./jquery.js"></script>
+    <script src="./raphael.js"></script>
+    <script src="./jquery.usmap.js"></script>
 
-<script src="./jquery.js"></script>
-  <script src="./raphael.js"></script>
-  <script src="./jquery.usmap.js"></script>
-
-</head>
-
-<br>
-<br>
-<br>
-<div class="font-map">Please select state below: </div>
-<div id="map" style="width: 500px; height: 300px; margin-left:50%; transform:translate(-50%);"></div>
-<div id="clicked-state" class="font-map"></div>
-<script src="./dashboard.js"></script>
-
-
-<div>
-    <div class="center">
-        <input type=button onClick="location.href='https://github.com/yuwei97910/is445-group30-final-project/blob/main/Final_Project_Notebook.ipynb'" value='Go to Analysis Notebook' class="button">
-        <input type=button onClick="location.href='writeup.html'" value='Go to Connective Information' class="button">
+    <br>
+    <br>
+    <br>
+    <div class="dash-board">
+        <h2>Please select a state below</h2>
+        <div id="map" style="width: 500px; height: 300px; margin-left:52%; transform:translate(-50%);"></div>
+        <div id="clicked-state" class="font-map"></div>
     </div>
     <br>
     <br>
-    <p class="reference">  <strong>IS445 Data Visualization Final Project</strong>  <br> <br> Authors: <br>
-        <li class="reference-member"> Ching-Yun Huang (ch60@illinois.edu)</li>
-        <li class="reference-member">Thomas Huang (yenshuo2@illinois.edu)</li>
-        <li class="reference-member">Haocheng Zhong (hzhong11@illinois.edu)</li>
-        <li class="reference-member">Yu-Wei Lai (yuwei6@illinois.edu)</li>
-    </p>
-    <p class="reference"> <strong>References:</strong>  <br>
-        <div class="center">
-            <input type=button onClick="location.href='https://www.yelp.com/dataset'" value='Yelp Dataset' class="button-reference">
-            <input type=button onClick="location.href='https://newsignature.github.io/us-map/#usage-events'" value='Libraries for interactive map' class="button-reference">
-        </div>
-    </p>
-</div>
+    <br>
+    <div class="dash-board">
+        <h2>Dashboard</h2>
+        <div id="vis" class="container-settings"></div>
+        <script src="./dashboard.js"></script>
+    </div>
 
+    <div class="information-section">
+        <br>
+        <br>
+        <h2>Information</h2>
+        <div class="center">
+            <input type=button
+                onClick="location.href='https://github.com/yuwei97910/is445-group30-final-project/blob/main/Final_Project_Notebook.ipynb'"
+                value='Go to Analysis Notebook' class="button">
+            <input type=button onClick="location.href='writeup.html'" value='Go to Connective Information'
+                class="button">
+        </div>
+        <br>
+        <br>
+        <p class="reference"><strong>IS445 Data Visualization Final Project</h3></strong>
+            <br>
+            <br>
+            <strong>Authors:</strong> <br>
+            <li class="reference-member"> Ching-Yun Huang (ch60@illinois.edu)</li>
+            <li class="reference-member">Thomas Huang (yenshuo2@illinois.edu)</li>
+            <li class="reference-member">Haocheng Zhong (hzhong11@illinois.edu)</li>
+            <li class="reference-member">Yu-Wei Lai (yuwei6@illinois.edu)</li>
+        </p>
+
+        <p class="reference"> <strong>References:</strong> <br>
+        <div class="center">
+            <input type=button onClick="location.href='https://www.yelp.com/dataset'" value='Yelp Dataset'
+                class="button-reference">
+            <input type=button onClick="location.href='https://newsignature.github.io/us-map/#usage-events'"
+                value='Libraries for interactive map' class="button-reference">
+        </div>
+        </p>
+    </div>
+
+</body>
+
+</html>
